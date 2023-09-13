@@ -13,6 +13,8 @@
             width: 100%;
         }
     </style>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
@@ -36,35 +38,36 @@
 
     <div class="content">
         <div class="info-card">
-            <h2>Kadar Oksigen</h2>
+            <h2 class="text">Kadar Oksigen</h2>
             <p id="oxygen"></p>
         </div>
         <div class="info-card">
-            <h2>pH</h2>
+            <h2 class="text">pH</h2>
             <p id="ph"></p>
         </div>
         <div class="info-card">
-            <h2>Salinitas</h2>
+            <h2 class="text">Salinitas</h2>
             <p id="salinitas"></p>
         </div>
         <div class="info-card">
-            <h2>Amonia</h2>
+            <h2 class="text">Amonia</h2>
             <p id="amonia"></p>
         </div>
         <div class="info-card">
-            <h2>Suhu Permukaan</h2>
+            <h2 class="text">Suhu Permukaan</h2>
             <p id="suhu_air_permukaan"></p>
         </div>
         <div class="info-card">
-            <h2>Suhu Dasar</h2>
+            <h2 class="text">Suhu Dasar</h2>
             <p id="suhu_air_dasar"></p>
         </div>
         <div class="info-card">
-            <h2>Suhu Ruang</h2>
+            <h2 class="text">Suhu Ruang</h2>
             <p id="suhu_ruang"></p>
         </div>
     </div>
 
+    <h2 class="Judul">TABEL</h2>
     <div class="table-container">
     <table class="data-table">
         <thead>
@@ -90,6 +93,215 @@
 <!-- </div> -->
     <!-- <div id="map" style="height: 300px; width: 400px;"></div> -->
 </div>
+
+<h2 class="Judul">GRAFIK</h2>
+<div class="chart-container">
+    <div class="chart">
+        <canvas id="Chart1"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="Chart2"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="Chart3"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="Chart4"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="Chart5"></canvas>
+    </div>
+    <div class="chart">
+        <canvas id="Chart6"></canvas>
+    </div>
+</div>
+
+<script>
+    // Data dan opsi grafik garis kiri
+    var Data1 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [{
+            label: 'Kadar Oksigen',
+            data: [10, 15, 25, 50, 70],
+            borderColor: 'red',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            fill: true
+        }]
+    };
+
+    var Options1 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    // Data dan opsi grafik garis kanan
+    var Data2 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [{
+            label: 'pH',
+            data: [20, 30, 50, 15, 25],
+            borderColor: 'red',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            fill: true
+        }]
+    };
+
+    var Options2 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    var Data3 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [{
+            label: 'Salinitas',
+            data: [20, 30, 50, 15, 25],
+            borderColor: 'red',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            fill: true
+        }]
+    };
+
+    var Options3 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    var Data4 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [{
+            label: 'Amonia',
+            data: [20, 30, 50, 15, 25],
+            borderColor: 'red',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            fill: true
+        }]
+    };
+
+    var Options4 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    var Data5 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [{
+            label: 'Suhu Ruang',
+            data: [20, 30, 50, 15, 25],
+            borderColor: 'red',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            fill: true
+        }]
+    };
+
+    var Options5 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    var Data6 = {
+        labels: ['17:00', '17:30', '18:00', '18:30', '19:00'],
+        datasets: [
+            {
+                label: 'Suhu Permukaan',
+                data: [10, 20, 30, 25, 15],
+                borderColor: 'red',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                fill: true
+            },
+            {
+                label: 'Suhu Dasar',
+                data: [15, 25, 35, 20, 10],
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                fill: true
+            }
+        ]
+      };
+
+      var Options6 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+      };
+
+    // Mendapatkan elemen canvas kiri dan kanan
+    var Ctx1 = document.getElementById('Chart1').getContext('2d');
+    var Ctx2 = document.getElementById('Chart2').getContext('2d');
+    var Ctx3 = document.getElementById('Chart3').getContext('2d');
+    var Ctx4 = document.getElementById('Chart4').getContext('2d');
+    var Ctx5 = document.getElementById('Chart5').getContext('2d');
+    var Ctx6 = document.getElementById('Chart6').getContext('2d');
+
+    // Membuat grafik garis kiri
+    var LineChart1 = new Chart(Ctx1, {
+        type: 'line',
+        data: Data1,
+        options: Options1
+    });
+
+    // Membuat grafik garis kanan
+    var LineChart2 = new Chart(Ctx2, {
+        type: 'line',
+        data: Data2,
+        options: Options2
+    });
+
+    var LineChart3 = new Chart(Ctx3, {
+        type: 'line',
+        data: Data3,
+        options: Options3
+    });
+
+    var LineChart4 = new Chart(Ctx4, {
+        type: 'line',
+        data: Data4,
+        options: Options4
+    });
+
+    var LineChart5 = new Chart(Ctx5, {
+        type: 'line',
+        data: Data5,
+        options: Options5
+    });
+
+    var LineChart6 = new Chart(Ctx6, {
+        type: 'line',
+        data: Data6,
+        options: Options6
+    });
+</script>
+
+
 <script src="Script.js"></script>
     <script>
         // Fungsi inisialisasi peta

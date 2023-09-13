@@ -50,7 +50,7 @@ body {
 }
 
 .info-card {
-    background-color: #fff;
+    background-color: #00b2b7;
     padding: 20px;
     margin: 10px;
     border-radius: 5px;
@@ -114,7 +114,7 @@ body {
 }
 
 .data-table th {
-    background-color: #f2f2f2;
+    background-color: #00b2b7;
 }
 
 .data-table tbody tr:nth-child(even) {
@@ -137,4 +137,31 @@ body {
 .centered-text {
     text-align: center; /* Mengatur teks menjadi di tengah */
     margin-top: 20px; /* Jarak atas dari teks */
+}
+
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.chart {
+    height: 300px;
+    width: 48%;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.text {
+    color: #fff;
+}
+
+.Judul {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    height: 50px;
 }
